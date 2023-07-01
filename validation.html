@@ -1,0 +1,61 @@
+<html>
+    <head>
+        <title>Login</title>
+        <script>
+            function validateInfo(){
+                alert('in fun')
+                var u=document.getElementById('unm').value;
+                var p=document.getElementById('pwd').value;
+                var flag1=validateUser(u);
+                var flag2=validatePass(p);
+                if(flag && flag){
+                    alert("in if")
+                    document.getElementById('mydiv').innerHTML="Welcome";
+                    document.getElementById('page').style.display='none';
+                }
+
+            }
+            function validateUser(u){
+                alert("in valid")
+                var pattern=/^[A-Za-z]+$/;
+                if(pattern.test(user)){
+                    alert("in test")
+                    if(user.length>6){
+                        document.getElementById('err1').innerHTML="";
+                        return true;
+                    }else{
+                        document.getElementById('err1').innerHTML="Invalid userName";
+                        return false;
+                    }
+                    document.getElementById('err1').innerHTML="Invalid userName";
+                    return false;
+
+                }
+            }
+            function validatePass(pwd){
+                alert("in valid pass")
+                var pattern= /^(?=.*\d)(?=.*#).{8,}$/;
+                if(pattern.test(password)){
+                    if(password.length>8){
+                        document.getElementById('err2').innerHTML="";
+                        return true;
+                    }else{
+                        document.getElementById('err2').innerHTML="Invalid Pasward";
+                        return false;
+                    }
+                }
+                document.getElementById('err').innerHTML="Invalid Password";
+                return false;
+            }
+
+        </script>
+    </head>
+    <body>
+        <form id="page">
+            userName : <input type="text" name="unm" id="unm"><span>*</span><span id="err1"></span><p>
+            password : <input type="password" name="pwd" id="pwd"><span>*</span><span id="err2"></span><p>
+            <button type="button" onclick="validateInfo()">Login</button>
+        </form>
+        <div id="mydiv"></div>
+    </body>
+</html>

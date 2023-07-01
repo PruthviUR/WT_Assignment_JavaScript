@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Form Validation</title>
+  <style>
+    .error {
+      color: rgb(255, 21, 0);
+    }
+  </style>
+  <script>
+    function validateForm() {
+      var name = document.forms["myForm"]["name"].value;
+      var email = document.forms["myForm"]["email"].value;
+      var password = document.forms["myForm"]["password"].value;
+
+      if (name == "") {
+        alert("Name must be filled out");
+        return false;
+      }
+
+      if (email == "") {
+        alert("Email must be filled out");
+        return false;
+      }
+
+      if (password == "") {
+        alert("Password must be filled out");
+        return false;
+      }
+    }
+  </script>
+</head>
+<body>
+  <h2>Form Validation</h2>
+  <form name="myForm" onsubmit="return validateForm()" method="post">
+    <label for="name">Name:</label>
+    <input type="text" name="name" id="name">
+
+    <label for="email">Email:</label>
+    <input type="email" name="email" id="email">
+
+    <label for="password">Password:</label>
+    <input type="password" name="password" id="password">
+
+    <input type="submit" value="Submit">
+  </form>
+</body>
+</html>

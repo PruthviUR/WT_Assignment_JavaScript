@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Form Validation</title>
+  <style>
+    .error {
+      color: red;
+    }
+  </style>
+  <script>
+    function validateForm() {
+      var name = document.forms["myForm"]["name"].value;
+      var email = document.forms["myForm"]["email"].value;
+      var password = document.forms["myForm"]["password"].value;
+      var checkBox = document.forms["myForm"]["checkbox"].checked;
+      var selectBox = document.forms["myForm"]["selectbox"].value;
+
+      if (name == "") {
+        alert("Name must be filled out");
+        return false;
+      }
+
+      if (email == "") {
+        alert("Email must be filled out");
+        return false;
+      }
+
+      if (password == "") {
+        alert("Password must be filled out");
+        return false;
+      }
+
+      if (!checkBox) {
+        alert("Please check the checkbox");
+        return false;
+      }
+
+      if (selectBox == "") {
+        alert("Please select an option from the dropdown menu");
+        return false;
+      }
+    }
+  </script>
+</head>
+<body>
+  <h2>Form Validation</h2>
+  <form name="myForm" onsubmit="return validateForm()" method="post">
+    <label for="name">Name:</label>
+    <input type="text" name="name" id="name">
+
+    <label for="email">Email:</label>
+    <input type="email" name="email" id="email">
+
+    <label for="password">Password:</label>
+    <input type="password" name="password" id="password">
+
+    <label for="checkbox">Checkbox:</label>
+    <input type="checkbox" name="checkbox" id="checkbox">
+
+    <label for="selectbox">Dropdown:</label>
+    <select name="selectbox" id="selectbox">
+      <option value="">-- Select an option --</option>
+      <option value="option1">Option 1</option>
+      <option value="option2">Option 2</option>
+      <option value="option3">Option 3</option>
+    </select>
+
+    <button type="button" name="button" id="btn" onclick="validateForm()">validate</button>
+  </form>
+</body>
+</html>
